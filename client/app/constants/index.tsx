@@ -9,8 +9,9 @@ import { MdDashboard } from "react-icons/md";
 export const navLink = [
     {name: 'Home', path: '/', Icon:<TiHome />},
     {name: 'Registration', path: '/registration', Icon:<TiUserAdd />},
-    {name: 'Admin', path: '/admin', Icon:<MdDashboard />},
     {name: 'Elections', path: '/election', Icon:<FaPoll />},
+    {name: 'Admin', path: '/admin', Icon:<MdDashboard />},
+    
     {name: 'Candidates', path: '/candidates', Icon:<IoIosPeople />},
     {name: 'Voting', path: '/voting', Icon:<FaVoteYea />},
     
