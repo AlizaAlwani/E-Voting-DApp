@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   electionName: z.string().min(2).max(50),
@@ -52,13 +53,13 @@ export const ElectionForm = () => {
         <FormField
           control={form.control}
           name="electionName"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel>Election Name</FormLabel>
+              <FormLabel>Election Name <span className={cn('text-red-600 hidden', {'inline-block' : fieldState.invalid})}>*</span></FormLabel>
               <FormControl>
                 <Input  {...field} />
               </FormControl>
-              <FormMessage />
+              
             </FormItem>
           )}
         />
@@ -66,14 +67,14 @@ export const ElectionForm = () => {
 <FormField
           control={form.control}
           name="electionDescription"
-          render={({ field }) => (
+          render={({ field, fieldState}) => (
             <FormItem>
-              <FormLabel>Election Description</FormLabel>
+              <FormLabel>Election Description <span className={cn('text-red-600 hidden', {'inline-block' : fieldState.invalid})}>*</span> </FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
               
-              <FormMessage />
+              
             </FormItem>
           )}
         />
@@ -81,14 +82,14 @@ export const ElectionForm = () => {
 <FormField
           control={form.control}
           name="electionStartDate"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel>Election Start Date</FormLabel>
+              <FormLabel>Election Start Date <span className={cn('text-red-600 hidden', {'inline-block' : fieldState.invalid})}>*</span></FormLabel>
               <FormControl>
                 <Input type="date" {...field} />
               </FormControl>
               
-              <FormMessage />
+              
             </FormItem>
           )}
         />
@@ -96,15 +97,15 @@ export const ElectionForm = () => {
 <FormField
           control={form.control}
           name="electionEndDate"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
-              <FormLabel>Election End Date</FormLabel>
+              <FormLabel>Election End Date <span className={cn('text-red-600 hidden ', {'inline-block' : fieldState.invalid})}>*</span> </FormLabel>
               <FormControl>
                 <Input type="date" {...field} />
               </FormControl>
               
               
-              <FormMessage />
+              
             </FormItem>
           )}
         />
